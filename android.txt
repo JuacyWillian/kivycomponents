@@ -1,0 +1,3 @@
+title=Kivy Components
+author=Juacy Willian
+orientation=landscape

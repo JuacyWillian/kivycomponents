@@ -1,0 +1,30 @@
+#:kivy 1.10.1
+
+#:import NavigationLayout kivymd.navigationdrawer
+#:import MDNavigationDrawer kivymd.navigationdrawer
+#:import NavigationDrawerIconButton kivymd.navigationdrawer
+#:import NavigationDrawerToolbar kivymd.navigationdrawer
+#:import Toolbar kivymd.toolbar
+
+NavigationLayout:
+    id: nav_layout
+    MDNavigationDrawer:
+        id: drawer
+        drawer_logo: 'assets/drawer_logo.jpg'
+
+        NavigationDrawerIconButton:
+            icon: 'home'
+            text: 'Home'
+            on_release: manager.current = 'home'
+
+    BoxLayout:
+        orientation: 'vertical'
+        Toolbar:
+            id: toolbar
+            title: app.get_application_name()
+            md_bg_color: app.theme_cls.primary_color
+            background_palette: 'Primary'
+            background_hue: '500'
+            left_action_items: [['menu', lambda *x: nav_layout.toggle_nav_drawer()]]
+        ScreenManager:
+            id: manager
